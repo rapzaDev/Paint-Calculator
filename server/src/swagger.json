@@ -1,0 +1,49 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "CODE CHALLENGE (PAINTS) - DIGITAL CODE ",
+        "description": "This is an API to calculate the amount of painting who is will needed to paint a given living room ",
+        "version": "1.0.0",
+        "contact": {
+            "email": "rapzadev@gmail.com"
+        }
+    },
+    "paths": {
+        "/paints":{
+            "post":{
+                "tags":["Paint"],
+                "summary":"Calculate the amount of paint for a given living room",
+                "description": "Send the value on m2 of the walls, windows and doors on the living room. After that, returns with the amount of paint cans",
+                "requestBody":{
+                    "content":{
+                        "application/json":{
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "walls":{
+                                        "type": "string"
+                                    },
+                                    "windows_doors":{
+                                        "type": "string"
+                                    }
+                                },
+                                "example":{
+                                    "walls": "115",
+                                    "windows_doors": "20"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description":"Success"
+                    },
+                    "500": {
+                        "description":"Internal error"
+                    }
+                }
+            }
+        }
+    }
+}
